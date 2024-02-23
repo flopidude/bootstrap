@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="slideshow-container">
+            <div class="slide">
+                <img
+                    src="https://repository-images.githubusercontent.com/260096455/47f1b200-8b2e-11ea-8fa1-ab106189aeb0"
+                    style="width: 100%"
+                />
+            </div>
+            <div class="slide">
+                <img
+                    src="https://images.dog.ceo/breeds/terrier-irish/n02093991_1679.jpg"
+                    style="width: 100%"
+                />
+            </div>
+            <div class="slide">
+                <img
+                    src="https://images.dog.ceo/breeds/terrier-american/n02093428_3800.jpg"
+                    style="width: 100%"
+                />
+            </div>
+            <a class="prev" onclick="moveSlide(-1)">&#10094;</a>
+            <a class="next" onclick="moveSlide(1)">&#10095;</a>
+        </div>
+
+        <style>
+            .slideshow-container {
+                position: relative;
+                max-height: 50vh;
+                overflow: hidden;
+            }
+            .slide {
+                display: none;
+                height: 100%;
+            }
+            .slide img {
+                height: 100%;
+                object-fit: cover;
+                aspect-ratio: 16 / 9;
+            }
+            .prev,
+            .next {
+                cursor: pointer;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                padding: 16px;
+                color: white;
+                font-weight: bold;
+                font-size: 24px;
+                transition: 0.6s ease;
+                border-radius: 0 3px 3px 0;
+                user-select: none;
+            }
+            .next {
+                right: 0;
+                border-radius: 3px 0 0 3px;
+            }
+            .prev:hover,
+            .next:hover {
+                background-color: rgba(0, 0, 0, 0.8);
+            }
+        </style>
+
+        <script>
+            let slideIndex = 0;
+            showSlides(slideIndex);
+
+            function moveSlide(n) {
+                showSlides((slideIndex += n));
+            }
+
+            function showSlides(n) {
+                let i;
+                let slides = document.getElementsByClassName("slide");
+                if (n >= slides.length) {
+                    slideIndex = 0;
+                }
+                if (n < 0) {
+                    slideIndex = slides.length - 1;
+                }
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                slides[slideIndex].style.display = "block";
+            }
+        </script>
+    </body>
+</html>
