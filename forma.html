@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Formas</title>
+    <link href="css/stils.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <h1>Formas un ievadlauku piemērs</h1>
+    <form>
+        <p>Šodienas datums <input name="datums"><input name="xask"></p>
+        <p>Ja gribi uzzināt šodienas datumu, spied pogu DATUMS 
+            <input onclick="datums.value=new Date();" name="poga" value="DATUMS" type="button">
+            <input onclick="datums.value=new Date(Date.parse(datums.value)+1000*60*60*24*parseInt(xask.value))" name="poga" value="DATUMS" type="button">
+        </p>
+        <p>Ja gribi izdzēst datumua lodziņa saturu, spied pogu RESET
+            <input value="RESET" type="reset">
+        </p>
+    </form>
+    <form>
+        <div>1.skaitlis<input type="text" name="sk1"> </div>
+        <div>
+            <input value="X" name="reiz" onclick="rez.value=parseInt(sk1.value)*parseInt(sk2.value)" type="button">
+            <input value="/" name="reiz" onclick="rez.value=parseInt(sk1.value)/parseInt(sk2.value)" type="button">
+            <input value="+" name="reiz" onclick="rez.value=parseInt(sk1.value)+parseInt(sk2.value)" type="button">
+            <input value="-" name="reiz" onclick="rez.value=parseInt(sk1.value)-parseInt(sk2.value)" type="button">
+            <input value="RESET" name="reiz" onclick="sk1.value=''; sk2.value=''; rez.value='';" type="button">
+        </div>
+        <div>2.skaitlis<input type="text" name="sk2"> </div>
+        <hr>
+        <div>Rezultāts<input name="rez"> </div>
+    </form>
+</body>
+</html>
