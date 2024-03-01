@@ -1,3 +1,3 @@
 ## HELLO DEAR CHAD
 
-truly sigmatic repository
+sorry for this abomination this shit be for school 
