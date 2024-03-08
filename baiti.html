@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Baiti</title>
+    </head>
+    <body>
+        <script>
+            function answer(isKb) {
+                const speedMbps = 25;
+                let seconds = document.darbibas.sekundes.value;
+                let bits = speedMbps * 1000000 * seconds;
+                let bytes = bits / 8;
+
+                if (isKb) {
+                    let KB = bytes / 1000;
+                    document.darbibas.atbilde.value = KB// + " KB";
+                } else {
+                    let KiB = bytes / 1024;
+                    document.darbibas.atbilde.value = KiB// + " KiB";
+                }
+            }
+            function resetInputs() {
+                let form = document.darbibas;
+                form.sekundes.value = "";
+                form.atbilde.value = "";
+                let radioButtons = form.answerType;
+                for (let i = 0; i < radioButtons.length; i++) {
+                    radioButtons[i].checked = false;
+                }
+            }
+        </script>
+        <p>Aprēķināt, cik daudz informācijas var lejuplādēt</p>
+        <form name="darbibas">
+            <p>
+                <!-- <input name="plus00" value="+" type="button">
+            <input name="reiz00" value="x" type="button"> -->
+                <input name="sekundes" onfocus="resetInputs()" />sekundēs, ja
+                interneta ātrums ir 25 Mbps.
+            </p>
+            <p>Atbilde</p>
+            <!-- <br /> -->
+            <input name="atbilde" />
+            <input
+                type="radio"
+                id="typeKib"
+                name="answerType"
+                value="KiB"
+                onclick="answer(false)"
+            />
+            <label for="typeKib">KiB</label>
+            <input
+                type="radio"
+                id="typeKB"
+                name="answerType"
+                value="KB"
+                onclick="answer(true)"
+            />
+            <label for="typeKB">KB</label>
+        </form>
+    </body>
+</html>
